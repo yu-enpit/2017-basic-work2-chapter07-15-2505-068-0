@@ -15,17 +15,6 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageSwitcher mImageSwitcher;
-    int[] mImageResources = {R.drawable.slide00, R.drawable.slide01, R.drawable.slide02, R.drawable.slide03, R.drawable.slide04, R.drawable.slide05, R.drawable.slide06, R.drawable.slide07, R.drawable.slide08, R.drawable.slide09};
-    int mPosition = 0;
-
-    public void onAnimationButtonTapped(final View view) {
-        float y = view.getY() + 100;
-        view.animate().setDuration(1000).
-                setInterpolator(new BounceInterpolator()).y(y);
-    }
-
-
     boolean mIsSlideshow = false;
     MediaPlayer mMediaPlayer;
 
@@ -48,6 +37,17 @@ public class MainActivity extends AppCompatActivity {
     TimerTask mTimerTask = new MainTimerTask();
     Handler mHandler = new Handler();
 
+
+
+    ImageSwitcher mImageSwitcher;
+    int[] mImageResources = {R.drawable.slide00, R.drawable.slide01, R.drawable.slide02, R.drawable.slide03, R.drawable.slide04, R.drawable.slide05, R.drawable.slide06, R.drawable.slide07, R.drawable.slide08, R.drawable.slide09};
+    int mPosition = 0;
+
+    public void onAnimationButtonTapped(final View view) {
+        float y = view.getY() + 100;
+        view.animate().setDuration(1000).
+                setInterpolator(new BounceInterpolator()).y(y);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         mImageSwitcher = (ImageSwitcher)findViewById(R.id.imageSwitcher);
         mImageSwitcher.setFactory(new ViewSwitcher.ViewFactory(){
             @Override
-                public View makeView() {
+            public View makeView() {
                 ImageView imageView = new ImageView(getApplicationContext());
                 return imageView;
             }
