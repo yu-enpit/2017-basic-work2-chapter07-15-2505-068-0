@@ -15,7 +15,6 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-
     boolean mIsSlideshow = false;
     MediaPlayer mMediaPlayer;
 
@@ -49,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         view.animate().setDuration(1000).
                 setInterpolator(new BounceInterpolator()).y(y);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
